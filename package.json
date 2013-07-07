@@ -10,6 +10,7 @@
     "test": "node ./test.js"
   }
 , "dependencies": {
+    "simplegrammar": "0.0.1"
   }
 , "devDependencies": {
   }
