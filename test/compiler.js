@@ -13,3 +13,9 @@ assert.equal(result, '1');
 var result = pagejs.compileExpression('$k');
 assert.ok(result);
 assert.equal(result, '$k');
+    
+// compile single quoted string
+
+var result = pagejs.compileExpression("'foo'");
+assert.ok(result);
+assert.equal(result, "'foo'");
