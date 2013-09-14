@@ -1,21 +1,20 @@
 
-var pagejs = require('..'),
-    assert = require('assert');
+var compiler = require('../lib/compiler');
     
-// compile integer
-
-var result = pagejs.compileExpression('1');
-assert.ok(result);
-assert.equal(result, '1');
+exports['compile integer'] = function (test) {
+    var result = compiler.compileExpression('1');
+    test.ok(result);
+    test.equal(result, '1');
+}
     
-// compile variable
-
-var result = pagejs.compileExpression('$k');
-assert.ok(result);
-assert.equal(result, '$k');
+exports['compile variable'] = function (test) {
+    var result = compiler.compileExpression('$k');
+    test.ok(result);
+    test.equal(result, '$k');
+}
     
-// compile single quoted string
-
-var result = pagejs.compileExpression("'foo'");
-assert.ok(result);
-assert.equal(result, "'foo'");
+exports['compile single quoted string'] = function (test) {
+    var result = compiler.compileExpression("'foo'");
+    test.ok(result);
+    test.equal(result, "'foo'");
+}
