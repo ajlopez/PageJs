@@ -6,13 +6,13 @@ exports['parse integer'] = function (test) {
     test.ok(result);
     test.equal(result.compile(), '1');
 }
-    
+
 exports['parse variable'] = function (test) {
     var result = parser.parseExpression('$k');
     test.ok(result);
     test.equal(result.compile(), '$k');
 }
-    
+
 exports['parse single quoted string'] = function (test) {
     var result = parser.parseExpression("'foo'");
     test.ok(result);
@@ -65,4 +65,16 @@ exports['parse call without arguments'] = function (test) {
     var result = parser.parseExpression("foo()");
     test.ok(result);
     test.equal(result.compile(), "foo()");
+}
+
+exports['parse call with one argument'] = function (test) {
+    var result = parser.parseExpression("foo(1+2)");
+    test.ok(result);
+    test.equal(result.compile(), "foo(1 + 2)");
+}
+
+exports['parse call with two arguments'] = function (test) {
+    var result = parser.parseExpression("foo($a, 1+2)");
+    test.ok(result);
+    test.equal(result.compile(), "foo($a, 1 + 2)");
 }
