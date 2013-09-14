@@ -60,3 +60,9 @@ exports['parse name'] = function (test) {
     test.ok(result);
     test.equal(result.compile(), "foo");
 }
+
+exports['parse call without arguments'] = function (test) {
+    var result = parser.parseExpression("foo()");
+    test.ok(result);
+    test.equal(result.compile(), "foo()");
+}
