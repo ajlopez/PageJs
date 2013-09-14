@@ -54,3 +54,9 @@ exports['parse variable divide'] = function (test) {
     test.ok(result);
     test.equal(result.compile(), "$a / $b");
 }
+
+exports['parse name'] = function (test) {
+    var result = parser.parseExpression("foo");
+    test.ok(result);
+    test.equal(result.compile(), "foo");
+}
