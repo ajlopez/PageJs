@@ -20,3 +20,8 @@ exports['preprocess code'] = function (test) {
     var result = compiler.preprocess('<? $k = 1; ?>');
     test.equal(result, '$k = 1;');
 }
+
+exports['preprocess code starting with <?php'] = function (test) {
+    var result = compiler.preprocess('<?php $k = 1; ?>');
+    test.equal(result, '$k = 1;');
+}
