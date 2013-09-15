@@ -11,7 +11,12 @@ exports['preprocess null'] = function (test) {
     test.equal(result, '');
 }
 
-exports['preprocess empty stringnull'] = function (test) {
+exports['preprocess empty string'] = function (test) {
     var result = compiler.preprocess('');
     test.equal(result, '');
+}
+
+exports['preprocess code'] = function (test) {
+    var result = compiler.preprocess('<? $k = 1; ?>');
+    test.equal(result, '$k = 1;');
 }
