@@ -6,3 +6,9 @@ exports['parse assignment'] = function (test) {
     test.ok(result);
     test.equal(result.compile(), '$a = 1;');
 }
+    
+exports['parse two assignments'] = function (test) {
+    var result = parser.parseCommand('$a=1; $b = 2');
+    test.ok(result);
+    test.equal(result.compile(), '$a = 1; $b = 2;');
+}
