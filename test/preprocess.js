@@ -30,3 +30,8 @@ exports['preprocess expression'] = function (test) {
     var result = compiler.preprocess('<?= $k+1 ?>');
     test.equal(result, "echo($k+1);");
 }
+
+exports['preprocess text code text'] = function (test) {
+    var result = compiler.preprocess('<h1>Hello</h2><? while ($k++ < 10) { ?><h2>Message</h2><? } ?>');
+    test.equal(result, "echo('<h1>Hello</h2>');while ($k++ < 10) {echo('<h2>Message</h2>');}");
+}
