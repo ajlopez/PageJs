@@ -58,23 +58,23 @@ exports['parse variable divide'] = function (test) {
 exports['parse name'] = function (test) {
     var result = parser.parseExpression("foo");
     test.ok(result);
-    test.equal(result.compile(), "foo");
+    test.equal(result.compile(), "php.foo");
 }
 
 exports['parse call without arguments'] = function (test) {
     var result = parser.parseExpression("foo()");
     test.ok(result);
-    test.equal(result.compile(), "foo()");
+    test.equal(result.compile(), "php.foo()");
 }
 
 exports['parse call with one argument'] = function (test) {
     var result = parser.parseExpression("foo(1+2)");
     test.ok(result);
-    test.equal(result.compile(), "foo(1 + 2)");
+    test.equal(result.compile(), "php.foo(1 + 2)");
 }
 
 exports['parse call with two arguments'] = function (test) {
     var result = parser.parseExpression("foo($a, 1+2)");
     test.ok(result);
-    test.equal(result.compile(), "foo($a, 1 + 2)");
+    test.equal(result.compile(), "php.foo($a, 1 + 2)");
 }
