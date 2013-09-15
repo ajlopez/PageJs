@@ -6,3 +6,12 @@ exports['preprocess text'] = function (test) {
     test.equal(result, "echo('hello');");
 }
 
+exports['preprocess null'] = function (test) {
+    var result = compiler.preprocess(null);
+    test.equal(result, '');
+}
+
+exports['preprocess empty stringnull'] = function (test) {
+    var result = compiler.preprocess('');
+    test.equal(result, '');
+}
