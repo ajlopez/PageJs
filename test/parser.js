@@ -78,3 +78,21 @@ exports['parse call with two arguments'] = function (test) {
     test.ok(result);
     test.equal(result.compile(), "php.foo($a, 1 + 2)");
 }
+
+exports['parse equal'] = function (test) {
+    var result = parser.parseExpression("$a==1+2");
+    test.ok(result);
+    test.equal(result.compile(), "$a == 1 + 2");
+}
+
+exports['parse not equal'] = function (test) {
+    var result = parser.parseExpression("$a != 1+2");
+    test.ok(result);
+    test.equal(result.compile(), "$a != 1 + 2");
+}
+
+exports['parse php not equal'] = function (test) {
+    var result = parser.parseExpression("$a <> 1+2");
+    test.ok(result);
+    test.equal(result.compile(), "$a != 1 + 2");
+}
