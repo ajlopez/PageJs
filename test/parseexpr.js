@@ -19,6 +19,12 @@ exports['parse single quoted string'] = function (test) {
     test.equal(result.compile(), "'foo'");
 }
 
+exports['parse single quoted string with special characters'] = function (test) {
+    var result = parser.parseExpression("'foo\r\n\tbar'");
+    test.ok(result);
+    test.equal(result.compile(), "'foo\\r\\n\\tbar'");
+}
+
 exports['parse integer sum'] = function (test) {
     var result = parser.parseExpression("1+2");
     test.ok(result);
