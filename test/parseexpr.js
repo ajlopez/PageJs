@@ -96,3 +96,17 @@ exports['parse php not equal'] = function (test) {
     test.ok(result);
     test.equal(result.compile(), "$a != 1 + 2");
 }
+
+exports['parser parse two expressions'] = function (test) {
+    var myparser = parser.createParser("1 2");
+    
+    var result = myparser.parseExpression();
+    test.ok(result);
+    test.equal(result.compile(), "1");
+    
+    result = myparser.parseExpression();
+    test.ok(result);
+    test.equal(result.compile(), "2");
+    
+    test.equal(myparser.parseExpression(), null);
+}
