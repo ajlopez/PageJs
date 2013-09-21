@@ -30,3 +30,13 @@ exports['parse composite command'] = function (test) {
     
     test.equal(myparser.parseCommand(), null);
 }
+
+exports['parse simple if command'] = function (test) {
+    var myparser = parser.createParser('if ($k) \r\n $a=1;');
+    
+    var result = myparser.parseCommand();
+    test.ok(result);
+    test.equal(result.compile(), 'if ($k) $a = 1;');
+    
+    test.equal(myparser.parseCommand(), null);
+}
