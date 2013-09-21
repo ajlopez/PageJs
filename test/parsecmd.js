@@ -40,3 +40,23 @@ exports['parse simple if command'] = function (test) {
     
     test.equal(myparser.parseCommand(), null);
 }
+
+exports['parse composite if command'] = function (test) {
+    var myparser = parser.createParser('if ($k) {\r\n $a=1;\r\n $b=2; }');
+    
+    var result = myparser.parseCommand();
+    test.ok(result);
+    test.equal(result.compile(), 'if ($k) { $a = 1; $b = 2; }');
+    
+    test.equal(myparser.parseCommand(), null);
+}
+
+exports['parse simple while command'] = function (test) {
+    var myparser = parser.createParser('while($k)$a=1;');
+    
+    var result = myparser.parseCommand();
+    test.ok(result);
+    test.equal(result.compile(), 'while ($k) $a = 1;');
+    
+    test.equal(myparser.parseCommand(), null);
+}
