@@ -20,3 +20,13 @@ exports['parse two assignments'] = function (test) {
     
     test.equal(myparser.parseCommand(), null);
 }
+
+exports['parse composite command'] = function (test) {
+    var myparser = parser.createParser('{$a=1; $b = 2;}');
+    
+    var result = myparser.parseCommand();
+    test.ok(result);
+    test.equal(result.compile(), '{ $a = 1; $b = 2; }');
+    
+    test.equal(myparser.parseCommand(), null);
+}
