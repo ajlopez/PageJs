@@ -60,3 +60,17 @@ exports['parse simple while command'] = function (test) {
     
     test.equal(myparser.parseCommand(), null);
 }
+
+exports['parse assign and simple while command'] = function (test) {
+    var myparser = parser.createParser('$k = 1;\r\n\r\n while($k)$a=1;');
+    
+    var result = myparser.parseCommand();
+    test.ok(result);
+    test.equal(result.compile(), '$k = 1;');
+    
+    result = myparser.parseCommand();
+    test.ok(result);
+    test.equal(result.compile(), 'while ($k) $a = 1;');
+    
+    test.equal(myparser.parseCommand(), null);
+}
