@@ -74,3 +74,13 @@ exports['parse assign and simple while command'] = function (test) {
     
     test.equal(myparser.parseCommand(), null);
 }
+
+exports['parse simple for command'] = function (test) {
+    var myparser = parser.createParser('for($k=10;$k;$k=$k-1)echo($k);');
+    
+    var result = myparser.parseCommand();
+    test.ok(result);
+    test.equal(result.compile(), 'for ($k = 10; $k; $k = $k - 1) php.echo($k);');
+    
+    test.equal(myparser.parseCommand(), null);
+}
