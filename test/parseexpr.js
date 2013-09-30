@@ -116,3 +116,43 @@ exports['parser parse two expressions'] = function (test) {
     
     test.equal(myparser.parseExpression(), null);
 }
+
+exports['parser post increment'] = function (test) {
+    var myparser = parser.createParser("$k++");
+    
+    var result = myparser.parseExpression();
+    test.ok(result);
+    test.equal(result.compile(), "$k++");
+    
+    test.equal(myparser.parseExpression(), null);
+}
+
+exports['parser post decrement'] = function (test) {
+    var myparser = parser.createParser("$k--");
+    
+    var result = myparser.parseExpression();
+    test.ok(result);
+    test.equal(result.compile(), "$k--");
+    
+    test.equal(myparser.parseExpression(), null);
+}
+
+exports['parser pre increment'] = function (test) {
+    var myparser = parser.createParser("++$k");
+    
+    var result = myparser.parseExpression();
+    test.ok(result);
+    test.equal(result.compile(), "++$k");
+    
+    test.equal(myparser.parseExpression(), null);
+}
+
+exports['parser pre decrement'] = function (test) {
+    var myparser = parser.createParser("--$k");
+    
+    var result = myparser.parseExpression();
+    test.ok(result);
+    test.equal(result.compile(), "--$k");
+    
+    test.equal(myparser.parseExpression(), null);
+}
