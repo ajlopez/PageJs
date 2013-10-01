@@ -1,5 +1,6 @@
 
-var compiler = require('../lib/compiler');
+var compiler = require('../lib/compiler'),
+    path = require('path');
 
 exports['compile simple text'] = function (test) {
     var result = compiler.compile('Hello world');
@@ -20,3 +21,10 @@ exports['compile text and expression'] = function (test) {
     test.ok(result.indexOf("php.echo('Hello world');") >= 0);
     test.ok(result.indexOf("php.echo($message);") >= 0);
 }
+
+exports['compile file'] = function (test) {
+    var result = compiler.compileFile(path.join(__dirname, './files/hello.php'));
+    test.ok(result);
+    test.equal(result, "php.echo('<h1>Hello, world</h1>');");
+}
+
