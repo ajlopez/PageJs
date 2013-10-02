@@ -73,6 +73,12 @@ exports['parse call without arguments'] = function (test) {
     test.equal(result.compile(), "php.foo()");
 }
 
+exports['parse call include'] = function (test) {
+    var result = parser.parseExpression("include('header.php')");
+    test.ok(result);
+    test.equal(result.compile(), "eval(php._includeFile('header.php'))");
+}
+
 exports['parse call with one argument'] = function (test) {
     var result = parser.parseExpression("foo(1+2)");
     test.ok(result);
