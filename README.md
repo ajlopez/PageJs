@@ -31,7 +31,9 @@ npm test
 
 ## Samples
 
-TBD
+- [Hello](https://github.com/ajlopez/PageJs/tree/master/samples/hello) Simple Hello World page, using a variable.
+- [Messages](https://github.com/ajlopez/PageJs/tree/master/samples/messages) Using a `for`.
+- [Site](https://github.com/ajlopez/PageJs/tree/master/samples/site) Site in Express, using Bootstrap, using `include`.
 
 ## License
 
