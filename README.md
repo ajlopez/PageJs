@@ -35,6 +35,10 @@ npm test
 - [Messages](https://github.com/ajlopez/PageJs/tree/master/samples/messages) Using a `for`.
 - [Site](https://github.com/ajlopez/PageJs/tree/master/samples/site) Site in Express, using Bootstrap, using `include`.
 
+## References
+
+- [PHP Interpreter in pure Erlang](https://github.com/altenwald/ephp)
+
 ## License
 
 MIT
